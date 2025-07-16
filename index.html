@@ -263,10 +263,15 @@
   </div>
   <div>
     <h1 id="projects">Projects</h1>
-    <h2>Ask the LLM Model</h2>
+    <h2>LLM Wrapper</h2>
+    <p>This is a wrapper around the huggingface Meta-Llama-3-8B-Instruct Model. The API is hosted in AWS using 
+      a lambda paired with API gateway. This is to show that I can work with LLM backend APIs despite not having 
+      the opportunity to do this professionally.
+    </p>
     <input type="text" id="userInput" placeholder="Type a question..." />
     <button onclick="callLambda()">Send</button>
     <pre id="responseBox" style="white-space: pre-wrap;"></pre>
+    <h2>Medical Data Mock Interface</h2>
     <p>I worked on a technical challenge to represent fake medical data in a hosted database and provide an application
       to query the database. I also trained and hosted a simple random forest classifier that returns a true or false as
       to whether a patient would get an extensive answer from a doctor. This is meant to show my backend and ML pipeline
@@ -278,9 +283,11 @@
           Populating, and Model Training Repo/a></li>
       <li><a href="https://github.com/rpacheco-1996/legacyBackend" target="_blank">Backend Repo</a></li>
     </ul>
+    <h2>Natural Language Processing (RETICO) Pip Projects</h2>
     <p>
       For my masters project I created a pipeline to deploy the universities NLP research toolset to PyPi for easy
-      installation. Linked below are the PyPi pages for the deployed components.
+      installation. Linked below are the PyPi pages for the deployed components. In addition to deploying to PyPi I also
+      unit tested the entire project totaling in over 170 unit tests.
     <ul>
       <li><a href="https://pypi.org/project/retico-core-core/" target="_blank">retico-core-core</a></li>
       <li><a href="https://pypi.org/project/retico-core-slim/" target="_blank">retico-core-slim</a></li>
@@ -290,6 +297,7 @@
       <li><a href="https://pypi.org/project/retico-core-asr/" target="_blank">retico-core-asr</a></li>
     </ul>
     </p>
+    <h2>Published Works</h2>
     <p>
       As a part of my undergraduate research I got a paper published examining the difference between a kNN and SVM
       classfier in regards to classifying wildland fires.
