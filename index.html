@@ -128,33 +128,38 @@
       }
     }
   </style>
-  <!-- <script  id="vertex-shader-2d" type="notjs">
+  <script>
+    async function callLambda() {
+      const input = document.getElementById("userInput").value;
+      const responseBox = document.getElementById("responseBox");
 
-  // an attribute will receive data from a buffer
-  attribute vec4 a_position;
+      if (!input) {
+        responseBox.textContent = "Please enter a message.";
+        return;
+      }
 
-  // all shaders have a main function
-  void main() {
+      const body = {
+        messages: [{ role: "user", content: input }]
+      };
 
-    // gl_Position is a special variable a vertex shader
-    // is responsible for setting
-    gl_Position = a_position;
-  }
+      try {
+        const res = await fetch("https://4ksum0zgs6.execute-api.us-east-1.amazonaws.com/prod/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
 
-</script>
-<script  id="fragment-shader-2d" type="notjs">
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
 
-  // fragment shaders don't have a default precision so we need
-  // to pick one. mediump is a good default
-  precision mediump float;
-
-  void main() {
-    // gl_FragColor is a special variable a fragment shader
-    // is responsible for setting
-    gl_FragColor = vec4(1, 0, 0.5, 1); // return redish-purple
-  }
-
-</script> -->
+        const data = await res.json();
+        responseBox.textContent = data.response || "No response field in API reply.";
+      } catch (err) {
+        responseBox.textContent = "Error: " + err.message;
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -176,7 +181,13 @@
     <h1 id="about">About</h1>
     <img src="resources/family.jpg" alt="Ryan Pacheco headshot" class="responsive-img" />
     <p>
-      Hi, my name is Ryan Pacheco and I’m a data and machine learning engineer in the Boise, ID area. I have a Masters of Science in Computer Science where I tested and deployed the universities natural language processing research tools to pypi to make the system more readily available. Professionally I have worked on the software engineering side of machine learning, taking models that Data Scientists train and fine tune and getting them ready for production along with building any infrastructure that is needed to support the models. I am passionate about getting to make new exciting products that help move a business forward and elevates the team. I love working with talented individuals who want to collaborate to make the most exciting and high functioning code around!
+      Hi, my name is Ryan Pacheco and I’m a data and machine learning engineer in the Boise, ID area. I have a Masters
+      of Science in Computer Science where I tested and deployed the universities natural language processing research
+      tools to pypi to make the system more readily available. Professionally I have worked on the software engineering
+      side of machine learning, taking models that Data Scientists train and fine tune and getting them ready for
+      production along with building any infrastructure that is needed to support the models. I am passionate about
+      getting to make new exciting products that help move a business forward and elevates the team. I love working with
+      talented individuals who want to collaborate to make the most exciting and high functioning code around!
     </p>
   </div>
   <div>
@@ -252,12 +263,19 @@
   </div>
   <div>
     <h1 id="projects">Projects</h1>
-    <p>I worked on a technical challenge to represent fake medical data in a hosted database and provide an application 
-      to query the database. I also trained and hosted a simple random forest classifier that returns a true or false as to whether a patient would get an extensive answer from a doctor. This is meant to show my backend and ML pipeline skills.
+    <h2>Ask the LLM Model</h2>
+    <input type="text" id="userInput" placeholder="Type a question..." />
+    <button onclick="callLambda()">Send</button>
+    <pre id="responseBox" style="white-space: pre-wrap;"></pre>
+    <p>I worked on a technical challenge to represent fake medical data in a hosted database and provide an application
+      to query the database. I also trained and hosted a simple random forest classifier that returns a true or false as
+      to whether a patient would get an extensive answer from a doctor. This is meant to show my backend and ML pipeline
+      skills.
     </p>
-    <ul> 
+    <ul>
       <li><a href="https://rpacheco-1996.github.io/legacyPacheco.github.io/" target="_blank">Application</a></li>
-      <li><a href="https://github.com/rpacheco-1996/legacyPacheco.github.io" target="_blank">Front End, Database Populating, and Model Training Repo/a></li>
+      <li><a href="https://github.com/rpacheco-1996/legacyPacheco.github.io" target="_blank">Front End, Database
+          Populating, and Model Training Repo/a></li>
       <li><a href="https://github.com/rpacheco-1996/legacyBackend" target="_blank">Backend Repo</a></li>
     </ul>
     <p>
@@ -273,10 +291,12 @@
     </ul>
     </p>
     <p>
-      As a part of my undergraduate research I got a paper published examining the difference between a kNN and SVM classfier in regards to classifying wildland fires.
-      <ul>
-        <li><a href="https://research.fs.usda.gov/treesearch/62328" target="_blank">kNN vs. SVM: A comparison of algorithms</a></li>
-      </ul>
+      As a part of my undergraduate research I got a paper published examining the difference between a kNN and SVM
+      classfier in regards to classifying wildland fires.
+    <ul>
+      <li><a href="https://research.fs.usda.gov/treesearch/62328" target="_blank">kNN vs. SVM: A comparison of
+          algorithms</a></li>
+    </ul>
     </p>
   </div>
   <div>
