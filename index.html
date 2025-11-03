@@ -83,6 +83,15 @@
       margin: 16px 0;
     }
 
+    .responsive-png {
+      width: 100%;
+      max-width: 1500px;
+      /* Adjust this value as needed */
+      height: auto;
+      display: block;
+      margin: 16px 0;
+    }
+
     @media (max-width: 1024px) {
       .subheader {
         flex-direction: column;
@@ -194,10 +203,11 @@
     <h1 id="experience">Experience</h1>
     <p>
     <ul>
-      <li>Kount Inc.: August 2025 - Present
+      <li>Kount, An Equifax Company: August 2025 - Present
         <ul>
           <li>Machine Learning Engineer Contractor</li>
-          <li>In my second stint Kount I have worked to upgrade internal services to AWS Go SDK V2, as well as upgrading the internal permissioning system
+          <li>In my second stint Kount I have worked to upgrade internal services to AWS Go SDK V2, as well as upgrading
+            the internal permissioning system
             for the AI teams event orchestrators.
           </li>
         </ul>
@@ -272,8 +282,8 @@
   <div>
     <h1 id="projects">Projects</h1>
     <h2>LLM Wrapper</h2>
-    <p>This is a wrapper around the huggingface Meta-Llama-3-8B-Instruct Model. The API is hosted in AWS using 
-      a lambda paired with API gateway. This is to show that I can work with LLM backend APIs despite not having 
+    <p>This is a wrapper around the huggingface Meta-Llama-3-8B-Instruct Model. The API is hosted in AWS using
+      a lambda paired with API gateway. This is to show that I can work with LLM backend APIs despite not having
       the opportunity to do this professionally.
     </p>
     <input type="text" id="userInput" placeholder="Type a question..." />
@@ -292,6 +302,13 @@
       <li><a href="https://github.com/rpacheco-1996/legacyBackend" target="_blank">Backend Repo</a></li>
     </ul>
   -->
+    <h2>Distributed Data and Model Hosting System Design</h2>
+    <p>
+      A detailed case study and sytem design for a secure data sharing system coupled with a machine learning model hosting and governance framework.
+      <br>
+      <a href="resources/case_study_pacheco.pdf" download>Download Complete Case Study</a>
+      <img src="resources/fig3.png" alt="Ryan Pacheco headshot" class="responsive-png" />
+    </p>
     <h2>Natural Language Processing (RETICO) Pip Projects</h2>
     <p>
       For my masters project I created a pipeline to deploy the universities NLP research toolset to PyPi for easy
